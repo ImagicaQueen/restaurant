@@ -1,0 +1,129 @@
+package.json is the configuration for npm
+most imp package for our react app bundler 
+//a hole code needs to be bundle together,cathed ,cleaned before it can be send to production
+//npm create-react-app by dufault using bundler like webpack, parcel ,beat
+we using in that parcel
+
+npm install -D parcel
+there are two type of dependency or packages that can we install
+Dev dep==> It is generally req for in a developent face
+Normal dep==> This used in production also
+
+    "parcel": "^2.10.3"  //use always ^
+
+    ^ ==> update minor version
+    ~ ==> update major version 
+
+package.json ==> (approx version content) Is the config of npm it keeps of 1 version of that package in installed in your system
+
+package.lock.json ==> (aject version content) package.lock.json keeps a trackog aject version that is installed
+
+nodemodules == > Are like a database where are all the paclages is exist
+
+i just install parcel  
+
+ "devDependencies": {
+    "parcel": "^2.10.3"
+  }
+
+  only parcel in there but inside node modules so much random things i not installed this where is comes from i came over there bcz our project need dep parcel now parcel has a project there  is own dep and those dep can have there own dep this is known as transative dependancy 
+
+    parcel creating server for usit has givin 1234 port it hosted our app on server
+
+  parcel can not do all this things there own parcel needs help a lot of packages that is by when we install parcel parcel says okay npm plz install other packages also parsel needs help babel also
+
+  if i have package.json and package.lock.json we can regenrate node_modules again package.lock.json contain aject version of l packages that is inside node_modules
+
+ ============> npx parcel index.html <===============
+ just like we have npm similarly we have something known as npx
+
+ npm  ==> npm means just we have calling the cammand npm (installing a package)
+ npx ==> (exectuing a package)
+
+ index.html is a source parcel basically goes inside that source and build up development build for our app
+ and host that developent build to localhost:1234 that wy we are accesss our app
+
+ another way to use react is npm at the end of the day react is js package if some peace of js code it is hosted npm also in npm we will get that react from npm now we dont now use of cdn link that is noe goodway
+
+ beacause new version comes react we want to change this url many times that is not way thats we we use npm 
+it is better to keep changes inside
+
+react already inside node_modules thats why we install this 
+
+
+npm install react 
+i want react as a normal dep
+npm install react-dom
+now no longer need of cdn
+
+    <script src="./App.js"></script> it treat as a nornal js file thats why did not understand this import export 
+    import React from "react";
+
+    if you write type module it will be not a normal js script it will be consider as module
+ so we can use 
+
+ <script type="module" src="./App.js"></script>
+
+
+
+ 
+##### parcel (Doing for us)
+
+- Dev Build
+- Local server
+- HMR Hot Module Replacement (Refresh our page if i save page)
+- File Watching Algorithm - written in c++
+
+parcel uses file watches algorithm (for refresh)
+
+- Caching  - Faster Builds
+- Image Optimization
+- Minification (if i create production build(dev build) it will do Minification our file also )
+- Bundling (it will bundle our file also)
+Basically parcel is a bundler the basic job of parcel is bundleing the files
+- Compressing (parcel is compresing our file also)
+- Consistent Hasing
+- Code spleting
+- Differencial bundleing ( when your app is hosted) support older browser also
+- Error Handling (give good err suggestion)
+- Https (test your app)
+- Tree Shaking (remove unused code for you)
+- Different dev and production bundle
+
+what is making fast?
+react app just not having react react uses  alot of other lib lot of other packages other dep our project 
+will need of make it production ready large scale application
+
+parcel is doing anything and bundler inside it and HMR
+webpack ,parsel is budler 
+
+npx parcel build index.html
+when i run this cammand i got a error there is a config index.html in our package.json inside that we have a mian inside it    "main": "App.js", so you dont need when you are using parsel 
+it is a way to tell npm this is entry point of our app when you are using parsel
+ we give entry point (npx parcel build index.html) like this index.html so parcel conflect with 
+ this ("main": "App.js") so i remove this
+ you will get into this err you remove this main (bcz npm is already generated it for you)
+
+create dist (npx parcel build index.html)
+parsel is doing all this above thing thats why react fast parsel is amazing it not just reactparsel uses some lib
+
+
+when it builds up production ready app wheredoes that build goes up
+when you do npx parcell build index.html it will bundle it will minifiy it do all the creazy things 
+and it will put all the files insise that dist folder indise that file used in developmentour broswer text coming from this dist  when you refersh the page and save the file it use parsel cache  and this dist update this using hmr 
+
+it build 3 file for you (three main file)
+
+dist\index.html                348 B    761ms
+dist\index.ad248605.css         84 B    576ms
+dist\index.ee67fa7e.js     139.31 KB    963ms
+
+this .parcel-cache , dist , node_modules are regenerated we dont need to push it into git-hub 
+wgite name inside .gitignore
+
+if i white inside package.json ====> "broswerlist": [] it supported that older version of that
+ "broswerlist": [
+    "last 2 Chrome version"
+  ]
+
+

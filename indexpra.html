@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> React</title>
+</head>
+
+<body>
+    <div id="root">
+        <!-- <h1>Hello World</h1> -->
+    </div>
+    <!-- <script>
+        const heading = document.createElement("h1")
+        heading.innerHTML = "Hello World From JavaScript."
+        const root = document.getElementById('root')
+        //this root taking ref to this div tag <div id="root"></div>
+        root.appendChild(heading)
+    </script> -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+        // const heading = React.createElement('h1', {}, 'Hello World from React')
+        //creating is the element is a core thing of react so its comes from React in the first lib
+
+        // const root = ReactDOM.createRoot(document.getElementById("root"))
+        //but you are creating a root and rendering something inside it its job of ReactDom
+        // root.render(heading)
+
+
+        /*
+        <div id="parent"> 
+           <div id="child1">
+           <h1>i am an h1 tag</h1>
+           <h2>i am an h2 tag</h2>
+           </div>
+           <div id="child2">
+           <h1>i am an h1 tag</h1>
+           <h2>i am an h2 tag</h2>
+           </div>
+        </div>
+        
+        if more than one sibling we take arr
+        */
+
+        const parent = React.createElement("div", { id: "parent" }, [React.createElement("div", { id: "child1" }, [React.createElement("h1", {}, "i am an h1 tag"), React.createElement("h2", {}, "i am an h2 tag")]), React.createElement("div", { id: "child2" }, [React.createElement("h1", {}, "i am an h1 tag"), React.createElement("h2", {}, "i am an h2 tag")])]);
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        root.render(parent)
+
+    </script>
+</body>
+
+</html>
